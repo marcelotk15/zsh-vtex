@@ -1,0 +1,6 @@
+vtex_account() {
+  emulate -L zsh
+
+  _vtex_read_account_workspace
+  print -r -- "${reply[1]-}"
+}

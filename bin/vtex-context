@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+# Standalone VTEX context printer for Starship, tmux, bash, etc.
+# Prints account@workspace and exits 0, or exits 1 when nothing to show.
+#
+# Respects VTEX_CONFIG_FILE and VTEX_REQUIRE_MANIFEST.
+
+emulate -L zsh
+
+typeset plugin_dir="${0:A:h:h}"
+
+source "$plugin_dir/lib/cache.zsh"
+source "$plugin_dir/lib/config.zsh"
+source "$plugin_dir/lib/project.zsh"
+
+typeset account="" workspace=""
+
+_vtex_read_account_workspace
+
+account="${reply[1]-}"
+workspace="${reply[2]-}"
+
+[[ -n $account && -n $workspace ]] || exit 1
+
+vtex_in_project || exit 1
+
+print -r -- "${account}@${workspace}"
+exit 0

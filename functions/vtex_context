@@ -1,0 +1,15 @@
+vtex_context() {
+  emulate -L zsh
+
+  local account=""
+  local workspace=""
+
+  _vtex_read_account_workspace
+
+  account="${reply[1]-}"
+  workspace="${reply[2]-}"
+
+  [[ -n $account && -n $workspace ]] || return 0
+
+  print -r -- "${account}@${workspace}"
+}

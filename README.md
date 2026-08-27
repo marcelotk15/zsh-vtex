@@ -1,5 +1,11 @@
 # zsh-vtex
 
+<p align="center">
+  <img src="docs/no-more-vtex-whoami.png" alt="NO MORE VTEX WHOAMI" width="420" />
+  <br />
+  <strong>NO MORE VTEX WHOAMI</strong>
+</p>
+
 A Zsh plugin that shows your current VTEX `account` and `workspace` in the terminal.
 
 It reads the context state written by the [VTEX Toolbelt](https://github.com/vtex/toolbelt) (the same data updated on login or workspace switch) and exposes helpers you can wire into your own prompt or theme. The plugin **never** modifies `PROMPT`, `RPROMPT`, or your theme on its own, it stays agnostic so you can use it with Oh My Zsh, Powerlevel10k, Starship, Spaceship, Pure, tmux, or a plain `PROMPT`.
